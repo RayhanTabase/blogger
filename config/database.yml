@@ -15,6 +15,9 @@
 # gem "pg"
 #
 default: &default
+  host: localhost
+  username: postgres
+  password: <%= ENV["my_postgres_password"] %>
   adapter: postgresql
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
