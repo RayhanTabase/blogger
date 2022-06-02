@@ -10,9 +10,7 @@
 - Rails
 - Node
 - Git
-- Configured Rails
-- Configured PostgreSQl
-- Provide PostgreSQL username and password to config file
+- PostgreSQl
 
 ## Getting Started
 
@@ -28,6 +26,9 @@ You now have access to the files.
 To install necessary dependencies run
 
  `bundle install`
+
+Configure PostgreSQL username and password in config folder -> database.yml
+Or in config folder -> application.yml provide postgreSQL password in variable  my_postgres_password: 'Password goes here'
 
 Start a local server running the command
 

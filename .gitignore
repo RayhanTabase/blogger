@@ -32,3 +32,6 @@
 
 # Ignore application configuration
 /config/application.yml
+
+# .gitignore
+node_modules/
