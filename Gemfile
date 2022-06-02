@@ -74,3 +74,7 @@ end
 gem 'figaro'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'rspec-rails'
+
+gem 'rails-controller-testing'
