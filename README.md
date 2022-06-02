@@ -1,24 +1,58 @@
-# README
+# Blogger
+> This a blog where users can post blogs, other users can view posted blogs and interact through comments and likes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Built with
+- Ruby
+- Ruby on Rails
 
-Things you may want to cover:
+## Pre-requisites
+- Ruby
+- Rails
+- Node
+- Git
+- Configured Rails
+- Configured PostgreSQl
+- Provide PostgreSQL username and password to config file
 
-* Ruby version
+## Getting Started
 
-* System dependencies
+Go to your terminal, navigate to your working directory and run
 
-* Configuration
+`git clone https://github.com/RayhanTabase/blogger.git`
 
-* Database creation
+After that navigate to the newly created folder
 
-* Database initialization
+`cd blogger`
 
-* How to run the test suite
+You now have access to the files.
+To install necessary dependencies run
 
-* Services (job queues, cache servers, search engines, etc.)
+ `bundle install`
 
-* Deployment instructions
+Start a local server running the command
 
-* ...
+`rails s`
+
+
+## Author
+
+👤 **Salim Abdulai**
+
+- GitHub: [@RayhanTabase](https://github.com/RayhanTabase)
+- Twitter: [@RayhanTabase](https://twitter.com/@RayhanTabase)
+- LinkedIn: [Salim-Abdulai](https://linkedin.com/in/salim-abdulai-5430065b)
+- Email: salimabdulai2@yahoo.com
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+Feel free to check the [issues page](../../issues/).
+
+## Show your support
+
+Give a ⭐️ if you like this project!
+
+## 📝 License
+
+This project is [MIT](./MIT.md) licensed.
