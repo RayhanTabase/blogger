@@ -1,1 +1,43 @@
-<h1>Here is a the user page</h1>
+<div class="general-container">
+  <div class="user-card">
+    <div class="image">
+      <%= image_tag(@user.photo) %>
+    </div>
+    <div class="details">
+      <h3 class="name">
+        <%= @user.name %>
+      </h3>
+      <p class="num-posts">
+        Number of posts: <%= @user.posts_counter || 0 %>
+      </p>
+    </div>
+  </div>
+
+  <div class="bio-card">
+    <% @user.bio %>
+  </div> 
+
+  <div class="align-center">
+    <% @user.recent_posts.each do |post| %>
+      <div class="post-card">
+        <p class="title">
+          <%= post.title %>
+        </p class="text">
+          <%= post.text %>
+        <div class="additional-details">
+          <p class="num_comments"> 
+            Comments: <%= post.comments_counter || 0 %> ,
+          </p>
+          <p class="num_likes"> 
+            Likes: <%= post.likes_counter || 0 %>
+          </p>
+        </div>
+      </div>
+    <% end %>
+    <button class="button">
+      <%= link_to controller: "posts", action: "index", user_id: @user.id do %>
+        See all posts 
+      <% end %>
+     </button>
+  </div>
+</div>
