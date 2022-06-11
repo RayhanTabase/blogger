@@ -1,4 +1,7 @@
 class Post < ApplicationRecord
+  validates :title, presence: true, length: { maximum: 250 }
+  validates :comments_counter, :likes_counter, numericality: { greater_than_or_equal_to: 0 }
+
   belongs_to :author, class_name: 'User', optional: true
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -11,5 +14,10 @@ class Post < ApplicationRecord
 
   def recent_comments
     comments.last(5)
+  end
+
+  def set_defaults
+    self.comments_counter = 0
+    self.likes_counter = 0
   end
 end

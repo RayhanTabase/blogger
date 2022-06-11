@@ -29,6 +29,12 @@ a {
   color: black;
 }
 
+img {
+  max-height: 100%;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 .general-container {
   padding-left: 3rem;
   padding-right: 3rem;
@@ -55,6 +61,7 @@ a {
 .user-card .image {
   border: 2px solid black;
   width: 15%;
+  overflow: hidden;
 }
 
 .user-card .details {
