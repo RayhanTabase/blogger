@@ -17,6 +17,7 @@
       <%= @post.text %>
     </p>
   </div>
+  <%= render "likes/form", post: @post %>
 
   <div class="post-comments">
     <% @post.comments.each do |comment| %>
@@ -30,4 +31,6 @@
     </p>
     <% end %>
   </div>
+
+  <%= render "comments/form", post: @post %>
 </div>
