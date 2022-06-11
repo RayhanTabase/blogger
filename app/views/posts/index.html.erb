@@ -1,7 +1,7 @@
 <div class="general-container">
   <div class="user-card">
     <div class="image">
-      <%= image_tag(@user.photo) %>
+      <%= @user.photo.nil? ? image_tag(@user.photo): image_tag("placeholder-user.png") %>
     </div>
     <div class="details">
       <h3 class="name">
@@ -12,6 +12,12 @@
       </p>
     </div>
   </div>
+
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
 
   <% @user.posts.each do |post| %>
     <div>

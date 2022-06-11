@@ -10,7 +10,7 @@
     <li class="user-card">
       <%= link_to controller: "users", action: "show", id: user.id do %>
         <div class="image">
-          <%= image_tag(user.photo) %>
+          <%= user.photo.nil? ? image_tag(user.photo) : image_tag("placeholder-user.png") %>
         </div>
         <div class="details">
             <h3 class="name">

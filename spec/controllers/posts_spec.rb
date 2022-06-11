@@ -9,10 +9,6 @@ RSpec.describe 'Posts controller', type: :request do
       expect(response).to render_template(:index)
     end
 
-    it 'check correct placeholder text' do
-      expect(response.body).to include('Here is a list of posts for a given user')
-    end
-
     it 'the correct response status' do
       expect(response.status).to eq(200)
     end
@@ -24,10 +20,6 @@ RSpec.describe 'Posts controller', type: :request do
     end
     it 'check template' do
       expect(response).to render_template(:show)
-    end
-
-    it 'check correct placeholder text' do
-      expect(response.body).to include('Here is a post')
     end
 
     it 'the correct response status' do
