@@ -44,6 +44,12 @@ Start a local server running the command
 - LinkedIn: [Salim-Abdulai](https://linkedin.com/in/salim-abdulai-5430065b)
 - Email: salimabdulai2@yahoo.com
 
+## 👤 Author2
+Dire Akanbi :student: 
+- GitHub: [@direakanbi](https://github.com/direakanbi)
+- Twitter: [@DireAkanbi](https://twitter.com/DireAkanbi)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/dire-akanbi/)
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
