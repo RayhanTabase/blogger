@@ -42,6 +42,18 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
 
+gem 'figaro'
+
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'rspec-rails'
+
+gem 'rails-controller-testing'
+
+gem 'devise'
+
+gem 'cancancan'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -70,15 +82,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'figaro'
-
-gem 'rubocop', '>= 1.0', '< 2.0'
-
-gem 'rspec-rails'
-
-gem 'rails-controller-testing'
-
-gem 'devise'
-
-gem 'cancancan'

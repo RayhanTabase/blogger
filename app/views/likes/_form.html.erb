@@ -1,5 +1,5 @@
 <%= form_with url: "/posts/#{post.id}/likes", scope: :like do |form| %>
-    <%= form.submit "Like" %>
+    <%= form.submit "Like" , class:"button" %>
 <% end %>
 
 <% flash.each do |type, msg| %>

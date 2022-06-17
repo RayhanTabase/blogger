@@ -17,18 +17,22 @@
       <%= @post.text %>
     </p>
   </div>
-  <%= render "likes/form", post: @post %>
+
+  <%= button_to "Delete Post", {:controller => :posts,
+      :action => 'destroy', :id => @post.id }, :method => :delete %>
 
   <div class="post-comments">
     <% @post.comments.each do |comment| %>
-    <p>
-      <span>
-        <%= comment.author.name %> :
-      </span>
-      <span>
-        <%= comment.text %>
-      </span>
-    </p>
+      <p>
+        <span>
+          <%= comment.author.name %> :
+        </span>
+        <span>
+          <%= comment.text %>
+        </span>
+      </p>
+      <%= button_to "Delete Comment", {:controller => :comments,
+      :action => 'destroy', :post_id => @post.id, :comment_id => comment.id }, :method => :delete %>
     <% end %>
   </div>
 
