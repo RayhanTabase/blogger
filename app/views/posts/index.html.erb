@@ -10,21 +10,8 @@
   <% @user.posts.each do |post| %>
     <div>
       <%= link_to controller: "posts", action: "show", id: post.id do %>
-        <div class="post-card">
-          <p class="title">
-            <%= post.title %>
-          </p class="text">
-            <%= post.text %>
-          <div class="additional-details">
-            <p class="num_comments"> 
-              Comments: <%= post.comments_counter || 0 %> ,
-            </p>
-            <p class="num_likes"> 
-              Likes: <%= post.likes_counter || 0 %>
-            </p>
-          </div>
-        <% end %>
-      </div>
+        <%= render "posts/post_class", post: post %>
+      <% end %>
 
       <div class="post-comments">
         <% post.recent_comments.each do |comment| %>

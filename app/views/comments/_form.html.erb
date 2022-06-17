@@ -1,7 +1,7 @@
 <h3>New Comment</h3>
 <%= form_with url: "/posts/#{post.id}/comments", scope: :comment do |form| %>
     <%= form.text_area :text, required: true %>
-    <%= form.submit "Post Comment" %>
+    <%= form.submit "Post Comment", class:"button" %>
 <% end %>
 
 <% flash.each do |type, msg| %>
