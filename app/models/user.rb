@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-        # , :confirmable
+  # , :confirmable
   validates :name, presence: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
   before_validation :set_defaults
@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: 'author_id', dependent: :destroy
   has_many :likes, foreign_key: 'author_id', dependent: :destroy
 
-  Roles = [ :admin , :default ]
+  ROLES = %i[admin default].freeze
 
   def recent_posts
     posts.last(3)
@@ -22,8 +22,7 @@ class User < ApplicationRecord
     self.posts_counter ||= 0
   end
 
-  def is?( requested_role )
-    self.role == requested_role.to_s
+  def is?(requested_role)
+    role == requested_role.to_s
   end
-
 end

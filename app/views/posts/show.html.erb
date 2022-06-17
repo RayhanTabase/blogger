@@ -1,25 +1,11 @@
 <div class="general-container">
-  <div class="post-large-card">
-    <div class="heading">
-      <p class="title">
-        <%= @post.title %>
-      </p class="text">
-      <div class="additional-details">
-        <p class="num_comments"> 
-          Comments: <%= @post.comments_counter || 0 %> ,
-        </p>
-        <p class="num_likes"> 
-          Likes: <%= @post.likes_counter || 0 %>
-        </p>
-      </div>
-    </div>
-    <p>
-      <%= @post.text %>
-    </p>
-  </div>
+
+  <%= render "posts/post_class", post: @post %>
 
   <%= button_to "Delete Post", {:controller => :posts,
       :action => 'destroy', :id => @post.id }, :method => :delete %>
+
+  <%= render "likes/form", post: @post %>
 
   <div class="post-comments">
     <% @post.comments.each do |comment| %>
@@ -31,6 +17,7 @@
           <%= comment.text %>
         </span>
       </p>
+      
       <%= button_to "Delete Comment", {:controller => :comments,
       :action => 'destroy', :post_id => @post.id, :comment_id => comment.id }, :method => :delete %>
     <% end %>

@@ -1,0 +1,14 @@
+<div class="post-card">
+  <p class="title">
+    <%= post.title %>
+  </p class="text">
+    <%= post.text %>
+  <div class="additional-details">
+    <p class="num_comments"> 
+      Comments: <%= post.comments.count %>
+    </p>
+    <p class="num_likes"> 
+      Likes: <%= post.likes.count %>
+    </p>
+  </div>
+</div>
