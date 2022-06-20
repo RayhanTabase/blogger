@@ -2,7 +2,11 @@
   <%= link_to controller: "users", action: "show", id: user.id do %>
     <div class="image">
       <% if user.photo %>
-        <%= image_tag user.photo %>
+        <%
+=begin%>
+ <%= image_tag user.photo %> 
+<%
+=end%>
       <% else %>
         <%= image_tag("placeholder-user.png") %>
       <% end %>
@@ -11,6 +15,9 @@
         <h3 class="name">
           <%= user.name %>
         </h3>
+        <p>
+          <%= user.bio %>
+        </p>
       <p class="num-posts">
         Number of posts: <%= user.posts_counter || 0 %>
       </p>
