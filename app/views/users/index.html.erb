@@ -1,0 +1,12 @@
+<div class="align-center">
+  <button class="button">
+    <%= link_to 'Create New Post', new_post_path %>
+  </button>
+</div>
+</br>
+
+<div class="general-container">
+  <% @users.each do |user| %>
+    <%= render "users/user_class", user: user %>
+  <% end %>
+</div>

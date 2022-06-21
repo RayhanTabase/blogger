@@ -1,0 +1,19 @@
+<div class="user-card">
+  <%= link_to controller: "users", action: "show", id: user.id do %>
+    <div class="image">
+      <% if user.photo %>
+        <%= image_tag user.photo %>
+      <% else %>
+        <%= image_tag("placeholder-user.png") %>
+      <% end %>
+    </div>
+    <div class="details">
+        <h3 class="name">
+          <%= user.name %>
+        </h3>
+      <p class="num-posts">
+        Number of posts: <%= user.posts_counter || 0 %>
+      </p>
+    </div>
+  <% end %>
+</div>
