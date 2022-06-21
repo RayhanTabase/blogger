@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-# , :confirmable
+  # , :confirmable
   validates :name, presence: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
   before_validation :set_defaults
@@ -23,6 +23,6 @@ class User < ApplicationRecord
   end
 
   def is?(requested_role)
-    self.role == requested_role.to_s
+    role == requested_role.to_s
   end
 end
