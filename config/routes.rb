@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
   devise_for :user
+  
+  devise_scope :user do
+    get '/user/sign_out' => 'devise/sessions#destroy'
+  end
 
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :show]
