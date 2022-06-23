@@ -44,11 +44,11 @@ Start a local server running the command
 - LinkedIn: [Salim-Abdulai](https://linkedin.com/in/salim-abdulai-5430065b)
 - Email: salimabdulai2@yahoo.com
 
-## 👤 Author2
-Dire Akanbi :student: 
-- GitHub: [@direakanbi](https://github.com/direakanbi)
-- Twitter: [@DireAkanbi](https://twitter.com/DireAkanbi)
-- LinkedIn: [LinkedIn](https://www.linkedin.com/dire-akanbi/)
+👤 **Saied Gaffer**
+
+- GitHub: [@Saied2035](https://github.com/saied2035)
+- Twitter: [@SaiedGaffer](https://twitter.com/SaiedGaffer)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/saiedgaffer/)
 
 ## 🤝 Contributing
 
