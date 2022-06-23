@@ -1,45 +1,50 @@
-# require 'rails_helper'
+require 'rails_helper'
 
-# RSpec.describe 'User', type: :feature do
-#   before :all do
-#     visit destroy_user_session_path
-#     @first_user = User.find_by(name: 'Tom')
-#     if @first_user.nil?
-#       @first_user = User.create(name: 'Tom', photo: 'https://placeholder.com', bio: 'User\'s bio', password: '222555',
-#                                 email: 'tom@example.com')
-#     end
-#   end
+RSpec.describe 'User', type: :feature do
+  before :all do
+    @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com')
+    @user2 = User.new(name: 'Bob', photo: 'https://placeholder.com', password: '123456', email: 'bob@bob.com')
+    @user = User.find_by(name: 'Sam') unless @user.save
+    @user2 = User.find_by(name: 'Bob') unless @user2.save
 
-#   describe 'index' do
-#     before :all do
-#       User.create(name: 'Me', photo: 'https://placeholder.com', password: '333555', email: 'me@example.com')
-#       User.create(name: 'You', photo: 'https://placeholder.com', password: '4444555', email: 'you@example.com')
-#     end
+    visit new_user_session_path
 
-#     before :each do
-#       visit users_path
-#     end
+    fill_in 'Email', with: 'sam@sam.com'
+    fill_in 'Password', with: '123456'
+    click_button 'Log in'
+  end
 
-#     it 'shows the username of all users' do
-#       expect(page).to have_content('Tom')
-#       expect(page).to have_content('Me')
-#       expect(page).to have_content('You')
-#     end
+  describe 'index' do
+    before :each do
+      visit new_user_session_path
+      # fill_in 'Email', with: 'sam@sam.com'
+      # fill_in 'Password', with: '123456'
+      # click_button 'Log in'
+      # visit users_path
+    end
 
-#     it 'See the profile picture for each user' do
-#       all_images = page.all('img')
-#       expect(all_images.count).to eq(3)
-#     end
+    it 'shows the username of all users' do
+      expect(page).to have_content('Sam')
+      expect(page).to have_content('Bob')
+      expect(page).to have_content('Create')
+    end
 
-#     it 'See the number of posts each user has written' do
-#       expect(page).to have_content('Posts: 0')
-#     end
+    # it 'See the profile picture for each user' do
+    #   all_images = page.all('.image')
+    #   expect(all_images.count).to eq(2)
+    # end
 
-#     it 'When I click on a user, I am redirected to that user\'s show page.' do
-#       click_link 'Tom'
-#       expect(page).to have_current_path(user_path('1'))
-#     end
-#   end
+    it 'See the number of posts each user has written' do
+      expect(page).to have_content('Number of posts: 0')
+      # expect(page.find_all('.num-posts').count).to eq(2)
+
+    end
+
+    # it 'When I click on a user, I am redirected to the show page.' do
+    #   click_link 'Sam'
+    #   expect(page).to have_current_path(user_path(@user.id))
+    # end
+  end
 
 #   describe 'show' do
 #     before :each do
@@ -98,4 +103,4 @@
 #       expect(page).to have_current_path(user_post_path(@first_user, @post1))
 #     end
 #   end
-# end
+end

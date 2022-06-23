@@ -12,10 +12,21 @@ RSpec.describe 'Login', type: :feature do
       visit new_user_session_path
     end
 
-    it 'shows the right content' do
-      expect(page).to have_content('Email')
-      expect(page).to have_content('Password')
-      expect(page).to have_content('Log in')
+    it 'shows available inputs' do
+      all_inputs = page.all('input')
+      expect(all_inputs.count).to eq(4)
+    end
+
+    it 'shows available inputs' do
+      expect(page).to have_field(type: 'email')
+    end
+
+    it 'shows password input' do
+      expect(page).to have_field(type: 'password')
+    end
+    
+    it 'shows submit input' do
+      expect(page).to have_selector("input[type=submit]")
     end
 
     it 'Shows an error when the login button is clicked without filling in any input' do
