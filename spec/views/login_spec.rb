@@ -24,9 +24,9 @@ RSpec.describe 'Login', type: :feature do
     it 'shows password input' do
       expect(page).to have_field(type: 'password')
     end
-    
+
     it 'shows submit input' do
-      expect(page).to have_selector("input[type=submit]")
+      expect(page).to have_selector('input[type=submit]')
     end
 
     it 'Shows an error when the login button is clicked without filling in any input' do
