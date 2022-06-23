@@ -4,8 +4,10 @@ RSpec.describe 'User', type: :feature do
   before :each do
     visit destroy_user_session_path
 
-    @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com', bio: 'bio')
-    @user2 = User.new(name: 'Bob', photo: 'https://placeholder.com', password: '123456', email: 'bob@bob.com', bio: 'bio')
+    @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com',
+                     bio: 'bio')
+    @user2 = User.new(name: 'Bob', photo: 'https://placeholder.com', password: '123456', email: 'bob@bob.com',
+                      bio: 'bio')
     @user = User.find_by(name: 'Sam') unless @user.save
     @user2 = User.find_by(name: 'Bob') unless @user2.save
 
