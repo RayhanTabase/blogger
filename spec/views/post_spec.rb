@@ -4,7 +4,7 @@ RSpec.describe 'Post', type: :feature do
   before :all do
     visit destroy_user_session_path
 
-    @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com')
+    @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com', bio: 'bio')
     @user = User.find_by(name: 'Sam') unless @user.save
 
     visit new_user_session_path

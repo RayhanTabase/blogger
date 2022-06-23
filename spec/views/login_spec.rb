@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe 'Login', type: :feature do
   describe 'login page' do
     before :all do
-      @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com')
+      @user = User.new(name: 'Sam', photo: 'https://placeholder.com', password: '123456', email: 'sam@sam.com', bio: 'bio')
       @user = User.find_by(name: 'Sam') unless @user.save
       visit destroy_user_session_path
     end
