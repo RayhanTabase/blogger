@@ -1,22 +1,27 @@
 Rails.application.routes.draw do
-
-  devise_for :user
+  # devise_for :user
+  devise_for :users,
+               controllers: {
+                 sessions: 'sessions',
+                 registrations: 'registrations'
+               }
   
-  devise_scope :user do
-    get '/user/sign_out' => 'devise/sessions#destroy'
-  end
+  get '/logout' => 'users#destroy'
+  post "/login" => 'users#login'
+  post "/signup" => 'users#create'
 
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+  resources :users do
+    resources :items
   end
 
   resources :posts do
-    resources :comments, only: [:create, :destroy]
-    resources :likes, only: [:create]
+    resources :items
+    resources :comments do
+      resources :items
+    end
   end
-
-  resources :posts, only: [:new, :create, :destroy]
-
-
+  
   root to: 'users#index'
+  mount Rswag::Ui::Engine => 'api-docs'
+  mount Rswag::Api::Engine => 'api-docs'
 end

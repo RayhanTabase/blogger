@@ -34,7 +34,7 @@ gem 'jbuilder'
 # gem "kredis"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
-# gem "bcrypt", "~> 3.1.7"
+gem 'bcrypt', '~> 3.1.7'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
@@ -52,6 +52,15 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'rack-cors'
+
+gem 'jwt'
+
+gem 'devise-jwt'
+
+gem 'rswag'
+gem 'rswag-api'
+gem 'rswag-ui'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -63,6 +72,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
