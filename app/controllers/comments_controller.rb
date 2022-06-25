@@ -1,30 +1,28 @@
 class CommentsController < ApplicationController
-  # load_and_authorize_resource
+  before_action :set_user
+
+  def index
+    @post = Post.find(params[:post_id])
+    @comments = @post.comments
+    render json: @comments
+  end
 
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(params.require(:comment).permit(:text))
+    current_user = User.first
     @comment.author_id = current_user.id
-
-    respond_to do |format|
-      format.html do
-        if @comment.save
-          redirect_to user_post_path(current_user, @post), flash: { alert: 'Comment created successfully' }
-        else
-          render :new, locals: { comment: @comment }, flash: { alert: 'Error: Comment could not be created' }
-        end
-      end
+    if @comment.save
+      render json: @post
+    else
+      render json: { alert: 'Error: Comment could not be created' }
     end
   end
 
-  def destroy
-    @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:comment_id])
-    @comment.destroy
-    respond_to do |format|
-      format.html do
-        redirect_to user_post_path(current_user, @post), flash: { alert: 'Comment deleted' }
-      end
-    end
+  private
+
+  def set_user
+    session_id = session[:user_id]
+    @user = User.find(session_id)
   end
 end
