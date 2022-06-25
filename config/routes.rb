@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :user
+  # devise_for :user
+  devise_for :users,
+               controllers: {
+                 sessions: 'sessions',
+                 registrations: 'registrations'
+               }
   
   devise_scope :user do
     get '/user/sign_out' => 'devise/sessions#destroy'
@@ -9,7 +14,7 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :show]
   end
 
-  post "/login", to: "users#login"
+  # post "/login", to: "users#login"
   get "/auto_login", to: "users#auto_login"
 
   resources :posts do

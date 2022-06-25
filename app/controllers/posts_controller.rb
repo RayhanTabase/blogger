@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   # before_action :authenticate_user!
-  before_action :authorized, only: [:auto_login]
+  # before_action :authorized, only: [:auto_login]
   
   def index
     @user = User.includes(posts: [:comments]).find(params[:user_id])

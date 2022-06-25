@@ -1,22 +1,22 @@
-class ApplicationController < ActionController::Base
-  skip_before_action :verify_authenticity_token
+class ApplicationController < ActionController::API
   # protect_from_forgery with: :exception
-
-  # before_action :update_allowed_parameters, if: :devise_controller?
+  
+  # skip_before_action :verify_authenticity_token
+  # before_action :authorized
+  before_action :update_allowed_parameters, if: :devise_controller?
 
   # protected
 
-  # def update_allowed_parameters
-  #   devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
-  #   devise_parameter_sanitizer.permit(:account_update) do |u|
-  #     u.permit(:name, :email, :password, :password_confirmation, :current_password)
-  #   end
-  # end
+  def update_allowed_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation) }
+    devise_parameter_sanitizer.permit(:account_update) do |u|
+      u.permit(:name, :email, :password, :password_confirmation, :current_password)
+    end
+  end
 
-  # rescue_from CanCan::AccessDenied do |exception|
-  #   redirect_to root_url, alert: exception.message
-  # end
-  before_action :authorized
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, alert: exception.message
+  end
 
   def encode_token(payload)
     JWT.encode(payload, 's3cr3t')
