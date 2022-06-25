@@ -58,6 +58,9 @@ gem 'jwt'
 
 gem 'devise-jwt'
 
+gem 'rswag'
+gem "rswag-api"
+gem "rswag-ui"
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -69,6 +72,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
