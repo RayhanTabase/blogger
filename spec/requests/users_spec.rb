@@ -1,12 +1,9 @@
 require 'swagger_helper'
-
+# rubocop:disable Metrics/BlockLength
 RSpec.describe 'users', type: :request do
-
   path '/logout' do
-
     get('delete user') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -20,10 +17,8 @@ RSpec.describe 'users', type: :request do
   end
 
   path '/login' do
-
     post('login user') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -37,10 +32,8 @@ RSpec.describe 'users', type: :request do
   end
 
   path '/signup' do
-
     post('create user') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -54,10 +47,8 @@ RSpec.describe 'users', type: :request do
   end
 
   path '/users' do
-
     get('list users') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -71,7 +62,6 @@ RSpec.describe 'users', type: :request do
 
     post('create user') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -85,10 +75,8 @@ RSpec.describe 'users', type: :request do
   end
 
   path '/users/new' do
-
     get('new user') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -187,10 +175,8 @@ RSpec.describe 'users', type: :request do
   end
 
   path '/' do
-
     get('list users') do
       response(200, 'successful') do
-
         after do |example|
           example.metadata[:response][:content] = {
             'application/json' => {
@@ -203,3 +189,4 @@ RSpec.describe 'users', type: :request do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

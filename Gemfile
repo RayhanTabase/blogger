@@ -59,8 +59,8 @@ gem 'jwt'
 gem 'devise-jwt'
 
 gem 'rswag'
-gem "rswag-api"
-gem "rswag-ui"
+gem 'rswag-api'
+gem 'rswag-ui'
 # Use Sass to process CSS
 # gem "sassc-rails"
 

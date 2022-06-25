@@ -1,7 +1,7 @@
 require 'swagger_helper'
+# rubocop:disable Metrics/BlockLength
 
 RSpec.describe 'comments', type: :request do
-
   path '/posts/{post_id}/comments' do
     # You'll want to customize the parameter types...
     parameter name: 'post_id', in: :path, type: :string, description: 'post_id'
@@ -149,3 +149,4 @@ RSpec.describe 'comments', type: :request do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength
