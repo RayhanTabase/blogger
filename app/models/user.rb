@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: JwtBlacklist
-         
+
   # , :confirmable
   validates :name, presence: true
   validates :posts_counter, numericality: { greater_than_or_equal_to: 0 }
@@ -23,9 +23,5 @@ class User < ApplicationRecord
 
   def set_defaults
     self.posts_counter ||= 0
-  end
-
-  def is?(requested_role)
-    role == requested_role.to_s
   end
 end

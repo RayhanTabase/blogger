@@ -6,23 +6,20 @@ Rails.application.routes.draw do
                  registrations: 'registrations'
                }
   
-  devise_scope :user do
-    get '/user/sign_out' => 'devise/sessions#destroy'
-  end
+  get '/logout' => 'users#destroy'
+  post "/login" => 'users#login'
+  post "/signup" => 'users#create'
 
-  resources :users, only: [:index, :show, :create] do
-    resources :posts, only: [:index, :show]
+  resources :users do
+    resources :items
   end
-
-  # post "/login", to: "users#login"
-  get "/auto_login", to: "users#auto_login"
 
   resources :posts do
-    resources :comments, only: [:create, :destroy]
-    resources :likes, only: [:create]
+    resources :items
+    resources :comments do
+      resources :items
+    end
   end
-
-  resources :posts, only: [:new, :create, :destroy]
-
+  
   root to: 'users#index'
 end
