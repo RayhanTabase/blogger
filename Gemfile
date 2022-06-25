@@ -52,6 +52,12 @@ gem 'devise'
 
 gem 'cancancan'
 
+gem 'bcrypt'
+
+gem 'rack-cors'
+
+gem 'jwt'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
